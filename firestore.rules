@@ -1,0 +1,47 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ─── USERS ───
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+
+      // ─── CHILDREN subcollection ───
+      match /children/{deviceId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+
+      // ─── SETTINGS subcollection ───
+      // Read allowed by any authenticated user (child needs to read parent's blocked apps)
+      // Write only by the owner
+      match /settings/{settingId} {
+        allow read: if request.auth != null;
+        allow write: if request.auth != null && request.auth.uid == userId;
+      }
+    }
+
+    // ─── APP RULES ───
+    match /appRules/{ruleId} {
+      allow read, write: if request.auth != null;
+    }
+
+    // ─── WEB FILTERS ───
+    match /webFilters/{filterId} {
+      allow read, write: if request.auth != null;
+    }
+
+    // ─── REPORTS ───
+    match /reports/{reportId} {
+      allow read, write: if request.auth != null;
+    }
+
+    // ─── PAIRING CODES ───
+    // Any authenticated user can read and update (child needs to mark as used)
+    // Only authenticated users can create
+    match /pairingCodes/{codeId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null;
+    }
+  }
+}

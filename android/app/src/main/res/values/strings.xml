@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ParentShield</string>
+    <string name="accessibility_service_description">ParentShield uses this service to monitor which apps are running and block restricted apps. This keeps your child safe by enforcing parental controls.</string>
+</resources>

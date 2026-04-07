@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "178125436872",
+    "project_id": "parentshield-1490a",
+    "storage_bucket": "parentshield-1490a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:178125436872:android:5d700440be9aa8947172fd",
+        "android_client_info": {
+          "package_name": "com.example.parentshield"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwWpTR1IvVBgst6gjXFqqpDeZWXqL6amI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
